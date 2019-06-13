@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "智家登录",
+    "usingComponents": {
+        "i-icon": "../../../dist/icon/index"
+    }
+}

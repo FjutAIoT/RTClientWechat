@@ -1,0 +1,57 @@
+/* register.wxss */
+Page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #f4f4f4; */
+}
+.title {
+    color: rgb(255, 255, 255);
+    font-size: 3.5rem;
+    font-family: "Times New Roman", Times, serif;
+    font-style: oblique;
+    font-stretch: ultra-expanded;
+    margin: 10vh 0;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.box {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vw;
+}
+input {
+    display: inline-block;
+    width: 85vw;
+    color: #000;
+}
+.phcolor {
+    color: #999;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 8vh;
+    margin-bottom: 2vh;
+    border-bottom: 1px solid #999;
+}
+.row .half {
+    width: 43vw;
+}
+button {
+    width: 85vw;
+    border-radius: 0 !important;
+    height: 8vh;
+    background-color: #317ef3 !important;
+}

@@ -1,0 +1,193 @@
+<i-tabs current="{{ current }}" bindchange="handleChange">
+    <i-tab key="tab1" title="情景模式"></i-tab>
+    <i-tab key="tab2" title="设备关联"></i-tab>
+</i-tabs>
+<view wx:if="{{ current == 'tab1' }}">  
+    <view class="listTitle">
+        模式列表
+        <i-icon class="btn" color="black" size="20" catchtap="add" type="add" />
+    </view> 
+    <view wx:for="{{modes}}" wx:key="key">
+        <i-collapse>
+            <i-collapse-item title="{{item.name}}">
+                <view slot="content">执行时间：{{item.nowTime}}</view>
+                <view slot="content">任务内容：</view>
+                <view slot="content" wx:if="{{item.modeTasks != null}}">
+                    <view slot="content" wx:for="{{item.modeTasks}}" wx:key="key" class="modelist">
+                        <text>{{item.device.device.name}}--{{item.time.mintue}}分{{item.time.second}}秒 >> </text><text wx:if="{{item.desired.switch}}">开启</text><text wx:else>关闭</text>
+                    </view>
+                </view>
+                <view slot="content" class="modelist" >
+                    <i-icon size="30" type="add" data-id="{{item.modeId}}" catchtap="addModeDevice1" />
+                </view>
+                <view slot="content" class="modelist" style="background-color:#317ef3;color:#fff;" wx:if="{{item.switch == false}}" data-id="{{item.modeId}}" data-switch="{{item.switch}}" catchtap="openMode">激活</view>
+                <view slot="content" class="modelist" style="background-color:red;color:#fff;" wx:if="{{item.switch == true}}" data-id="{{item.modeId}}" data-switch="{{item.switch}}" catchtap="openMode">关闭</view>
+                <view slot="content" class="modelist" style="background-color:red;color:#fff;" data-id="{{item.modeId}}" catchtap="deleteMode">删除</view>
+            </i-collapse-item>
+        </i-collapse>
+    </view>
+</view>
+<view wx:elif="{{ current == 'tab2' }}">
+    <view class="listTitle">
+        管理列表
+        <i-icon class="btn" color="black" size="20" catchtap="addA" type="add" />
+    </view>
+    <view class="associatesList list" wx:for="{{associates}}" wx:key="key">
+        <view class="associateTitle">设备关联<i-icon data-id="{{item.associateId}}" catchtap="deleteAssociate" class="icon" color="#666" size="25" type="trash_fill" /></view>
+        <view class="showBox">
+            <view wx:if="{{item.condition}}" class="deviceBox">
+                <image src="../../images/icon-image/{{item.conditionDevice.device.categoryItemId}}.png" />
+                <text>{{item.conditionDevice.device.name}}</text>
+            </view>
+            <view wx:else class="deviceBox nullbox">
+                <i-icon size="40" type="add" />
+            </view>
+            <i-icon wx:if="{{item.open == false}}" catchtap="changeAssociate" data-id="{{item.associateId}}" size="40" type="flashlight_fill" />
+            <i-icon wx:if="{{item.open == true}}" catchtap="changeAssociate" data-id="{{item.associateId}}" size="40" color="#317ef3" type="flashlight_fill" />
+            <view wx:if="{{item.expect}}" class="deviceBox">
+                <image src="../../images/icon-image/{{item.expectDevice.device.categoryItemId}}.png" />
+                <text>{{item.expectDevice.device.name}}</text>
+            </view>
+            <view wx:else class="deviceBox nullbox">
+                <i-icon size="40" type="add" data-id="{{item.associateId}}" catchtap="addAssociateDevice"/>
+            </view>
+        </view>  
+    </view>
+</view>
+<view wx:if="{{addMode}}" class="bottomBox" >
+    <view class="addMode">
+        <view class="close"><i-icon catchtap="exit" size="20" type="close" /></view>
+        <view class="row">
+			<text>模式名称</text>
+			<view class="selector"><input type="text" value="{{modeName}}" bindinput="changeModeName"/></view>
+        </view>
+        <view class="row">
+            <text>模式类型</text>
+            <view class="selector">
+                <picker mode="selector" range="{{range}}" value="{{index}}" bindchange="modeChange">
+                    <view>{{range[index]}}</view>
+                </picker>
+            </view>  
+        </view>
+        <view wx:if="{{modeType == 1}}" class="row">
+            <text>定时时间</text>
+            <view class="selector">
+                <picker mode="date" value="{{modeDate}}" start="2019-06-05" end="2050-12-30" bindchange="bindDateChange">
+                    <view>{{modeDate}} / </view>
+                </picker>
+                <picker mode="time" value="{{modeTime}}" start="00:01" end="24:00" bindchange="bindTimeChange">
+                    <view>{{modeTime}}</view>
+                </picker>
+            </view>  
+        </view>
+        <view wx:if="{{modeType == 2}}" class="row">
+            <text>定时时间</text>
+            <view class="selector">
+                <picker mode="selector" range="{{days}}" value="{{dayIndex}}" bindchange="bindDayChange">
+                    <view>{{days[dayIndex]}} / </view>
+                </picker>
+                <picker mode="time" value="{{modeTime}}" start="00:01" end="24:00" bindchange="bindTimeChange">
+                    <view>{{modeTime}}</view>
+                </picker>
+            </view>  
+        </view>
+        <view class="row">
+			<button type="primary" bindtap="addMode">添加</button>
+		</view>
+    </view>
+</view>
+<view wx:if="{{addAssociate}}" class="bottomBox">
+    <view class="addMode">
+        <view class="close"><i-icon catchtap="exit" size="20" type="close" /></view>
+        <view class="row">
+            <text>关联名称</text>
+            <view class="selector"><input type="text" value="{{associateName}}" bindinput="changeAssociateName"/></view>
+        </view>
+        <view class="row">
+            <text>设备选择</text>
+            <view class="selector">
+                <picker mode="selector" range="{{associateNames}}" value="{{associateIndex}}" bindchange="deviceChange">
+                    <view>{{associateNames[associateIndex]}}</view>
+                </picker>
+            </view>  
+        </view>
+        <view class="row">
+            <text>属性设置</text><view class="selector"></view>
+        </view>
+        <view class="row" wx:if="{{selectDevice.status.switch != null}}">
+            <text>开关</text><view class="selector"><switch bindchange="setSwitch" checked></switch></view>
+        </view>
+        <view class="row"  wx:if="{{selectDevice.status.luminance != null}}">
+            <text>亮度</text>
+            <view class="selector"></view>
+        </view>
+        <view class="row"  wx:if="{{selectDevice.status.luminance != null}}">
+            <slider bindchange="setLuminance" value="{{ selectDevice.status.luminance }}" step="10" min="10" max="100" show-value/>
+        </view>
+        <view class="row">
+            <button type="primary" bindtap="addAssociate">添加</button>
+        </view>
+    </view>
+</view>
+<view wx:if="{{addAssociateDevice}}" class="bottomBox">
+    <view class="addMode">
+        <view class="close"><i-icon catchtap="exit" size="20" type="close" /></view>
+        <view class="row">
+            <text>设备选择</text>
+            <view class="selector">
+                <picker mode="selector" range="{{associateNames}}" value="{{associateIndex}}" bindchange="deviceChange">
+                    <view>{{associateNames[associateIndex]}}</view>
+                </picker>
+            </view>  
+        </view>
+        <view class="row">
+            <text>属性设置</text><view class="selector"></view>
+        </view>
+        <view class="row" wx:if="{{selectDevice.status.switch != null}}">
+            <text>开关</text><view class="selector"><switch bindchange="setSwitch" checked></switch></view>
+        </view>
+        <view class="row"  wx:if="{{selectDevice.status.luminance != null}}">
+            <text>亮度</text>
+            <view class="selector"></view>
+        </view>
+        <view class="row"  wx:if="{{selectDevice.status.luminance != null}}">
+            <slider bindchange="setLuminance" value="{{ selectDevice.status.luminance }}" step="10" min="10" max="100" show-value/>
+        </view>
+        <view class="row">
+            <button type="primary" bindtap="addAssociate1">添加</button>
+        </view>
+    </view>
+</view>
+<view wx:if="{{addModeDevice}}" class="bottomBox">
+        <view class="addMode">
+            <view class="close"><i-icon catchtap="exit" size="20" type="close" /></view>
+            <view class="row">
+                <text>时间设置</text>
+                <view class="selector"><input bindinput="setMintue" type="text"/>分<input bindinput="setSecond" type="text"/>秒</view>
+            </view>
+            <view class="row">
+                <text>设备选择</text>
+                <view class="selector">
+                    <picker mode="selector" range="{{associateNames}}" value="{{associateIndex}}" bindchange="deviceChange">
+                        <view>{{associateNames[associateIndex]}}</view>
+                    </picker>
+                </view>  
+            </view>
+            <view class="row">
+                <text>属性设置</text><view class="selector"></view>
+            </view>
+            <view class="row" wx:if="{{selectDevice.status.switch != null}}">
+                <text>开关</text><view class="selector"><switch bindchange="setSwitch" checked></switch></view>
+            </view>
+            <view class="row" wx:if="{{selectDevice.status.luminance != null}}">
+                <text>亮度</text>
+                <view class="selector"></view>
+            </view>
+            <view class="row"  wx:if="{{selectDevice.status.luminance != null}}">
+                <slider bindchange="setLuminance" value="{{ selectDevice.status.luminance }}" step="10" min="10" max="100" show-value/>
+            </view>
+            <view class="row">
+                <button type="primary" bindtap="addModeDevice">添加</button>
+            </view>
+        </view>
+    </view>

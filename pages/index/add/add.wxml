@@ -1,0 +1,47 @@
+<!-- add.wxml -->
+<view class="all" wx:if="{{first}}">
+    <form onsubmit="next">
+            <i-input title="家庭组ID" value="{{ deviceData.groupId }}" disabled />
+            <i-input title="设备ID" value="{{ deviceData.deviceId }}" disabled />
+            <i-input title="设备类型" disabled />
+            <picker
+              mode="multiSelector"
+              bindchange="bindMultiPickerChange"
+              bindcolumnchange="bindMultiPickerColumnChange"
+              value="{{multiIndex}}"
+              range="{{multiArray}}"
+            >
+            <text>{{multiArray[0][multiIndex[0]]}} / {{multiArray[1][multiIndex[1]]}}</text>
+            </picker>
+            <i-input title="设备名称" value="{{deviceData.name}}" bind:change="setDeviceName" disabled/>
+            <i-input title="所在房间" disabled />
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{roomName}}">
+                <text>{{roomName[index]}}</text>
+            </picker>
+            <i-input title="描述" value="{{deviceData.desc}}" type="textarea" bind:change="setDeviceDesc" placeholder="请输入相关描述(最多50字)" maxlength="50" />
+            <i-input title="操作系统" value="{{ os }}" disabled />
+            <i-input title="联网方式" value="{{ networking }}" disabled />
+            <i-input title="接入协议" value="{{ protocol }}" disabled />
+        <button type="primary" form-type="submit">下一步</button>
+    </form>
+</view>
+<view class="all1" wx:if="{{!first}}">
+    <i-panel title="信息确认">
+        <i-input value="{{ deviceData.name }}" type="text" title="设备名称" disabled/>
+        <i-input value="{{ deviceData.categoryItemId }}" type="text" title="设备类型" disabled/>
+        <i-input value="{{ selectedRoom }}" type="text" title="所在房间" disabled/>
+        <i-input value="{{ deviceData.desc }}" type="textarea" title="描述" disabled />
+    </i-panel>
+    <view wx:for="{{deviceStatus}}" wx:for-index="index" wx:key="key">
+        <i-panel title="属性 {{index+1}}">
+            <i-input value="{{ item.id }}" type="text" title="属性名称" disabled/>
+            <i-input value="{{ item.name }}" type="text" title="显示名称" disabled/>
+            <i-input value="{{ item.attrType }}" type="text" title="类型" disabled/>
+            <i-input value="{{ item.unit}}" type="text" title="单位" disabled />
+        </i-panel>
+    </view>
+    <button type="primary" bindtap="back">上一步</button>
+    <button type="primary" bindtap="add">确认添加</button>
+</view>
+
+

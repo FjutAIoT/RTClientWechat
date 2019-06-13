@@ -1,0 +1,11 @@
+<!-- smart.wxml -->
+<view wx:if="{{ messages[0] == null }}">
+    <view class="mText">暂无消息</view>
+</view>
+<view wx:else>
+    <view wx:for="{{ messages }}" wx:key="key" class="messageBox">
+        <view class="title">{{ item.message.title }}</view>
+        <view class="content">{{ item.message.content }}</view>
+        <view class="time">{{ item.message.createTime }}</view>
+    </view>
+</view>

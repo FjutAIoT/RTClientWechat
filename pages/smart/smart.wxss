@@ -1,0 +1,129 @@
+/* smart.wxss */
+.btn {
+    float: right;
+    margin-right: 6vw;
+}
+.listTitle {
+    width: 100vw;
+    height: 12vw;
+    font-size: 1.1rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #bbb;
+    line-height: 12vw;
+    text-indent: 1rem;
+}
+.associatesList {
+    width: 90vw;
+    height: 50vw;
+    border: 1px solid black;
+    margin: 3vw;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list {
+    flex-direction: column;
+}
+.associateTitle {
+    width: 80%;
+    height: 8vw;
+    border-bottom: 1px solid #666;
+    margin-bottom: 2vw;
+}
+.associateTitle .icon {
+    float: right;
+}
+.deviceBox {
+    width: 30vw;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.nullbox {
+    border: 1px solid #666;
+    border-radius: 50%;
+}
+.associatesList .showBox {
+    width: 90vw;
+    height: 32vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.deviceBox image {
+    width: 20vw;
+    height: 20vw;
+}
+
+.modelist {
+    width: 100%;
+    height: 10vw;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin-top: 2vw;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottomBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(150, 150, 150, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addMode {
+    width: 80%;
+    height: 80%;
+    background-color: #fff;
+}
+.row {
+    width: 90%;
+    height: 14vw;
+    margin: 0 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.row text {
+    display: inline-block;
+    height: 14vw;
+    width: 30vw;
+    line-height: 14vw;
+    text-align: center;
+}
+.row .selector {
+    display: inline-block;
+    height: 14vw;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+}
+.row input {
+    display: inline-block;
+    height: 14vw;
+}
+button {
+    margin-top: 4vh;
+    width: 70vw;
+    background-color: #317ef3 !important;
+    border-radius: 0 !important;
+}
+.close {
+    width: 100%;
+    text-align: right;
+}
+slider {
+    width: 100%;
+}

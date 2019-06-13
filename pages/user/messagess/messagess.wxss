@@ -1,0 +1,38 @@
+Page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mText {
+    margin: 20vw auto;
+    width: 100vw;
+    height: 10vw;
+    text-align: center;
+    color: #999;
+}
+.messageBox {
+    width: 90vw;
+    height: auto;
+    box-shadow: 0 0 5px #333;
+    margin-top: 2vh;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 1vh;
+}
+.title {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 5vh;
+}
+.content {
+    margin-top: 1vw;
+    width: 100%;
+    text-indent: 2rem;
+}
+.time {
+    margin-top: 1vw;
+    width: 100%;
+    text-align: right;
+}

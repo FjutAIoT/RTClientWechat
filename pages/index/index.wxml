@@ -1,0 +1,86 @@
+<!-- index.wxml -->
+<!-- <view class="all" bindtap="myClick"> -->
+<view class="all" bindtap="myClick"  style="background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559560823118&di=56e0b90fb5f3e5f9e3ab07656b9773c6&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201606%2F26%2F20160626112152_VvaLU.thumb.700_0.jpeg') repeat;background-size: 100% 100%;">
+<!-- 用户 -->
+<view class="baseIm" style="background:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559560823118&di=56e0b90fb5f3e5f9e3ab07656b9773c6&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201606%2F26%2F20160626112152_VvaLU.thumb.700_0.jpeg') repeat;background-size: 100% 500%;">
+    <!-- 天气信息 -->
+    <!-- <view class="baseIm" style="background-color:#fff;"> -->
+    <view class="t-box">
+        <view class="Imtext">{{weatherData.temperature}}<text>实时气温</text></view>
+        <view class="Imtext midtxt">{{weatherData.weather}}<text>天气情况</text></view>
+        <view class="Imtext">{{weatherData.city}}<text>所在城市</text></view> 
+    </view>
+</view>
+<!-- 设备栏 -->
+<view class="equipments">
+    <!-- 设备导航栏 -->
+    <view class="nav-equipment">
+        <view wx:for="{{eqTypes}}" wx:key="key">
+            <image class="nav-icon" catchtap="changeType" data-type="{{item}}" src="../../images/icon-image/{{item}}.png"/>
+        </view>
+    </view>
+    <!-- 设备显示栏 -->
+    <view class="box-equipment">
+        <i-message id="message" />
+        <view class="null-box"></view>
+        <view class="add-box" catchtap="toAdd">添加设备</view>
+        <view wx:if="{{deviceList}}">
+            <view wx:for="{{deviceList}}" wx:key="key">
+                <view wx:if="{{item.device.categoryId == 'lighting' && (selected == 'all' || selected == 'ceilingLamp')}}" class="add-box" catchtap="toEq" data-deviceid="{{item.device.deviceId}}">
+                    <image src="../../images/icon-image/{{item.device.categoryItemId}}.png"/>
+                    <text>{{item.device.roomName}}</text>
+                    <text>{{item.device.name}}</text>
+                    <view wx:if="{{item.device.onLine == false}}">
+                        <i-icon type="offline_fill" color="red" size="24" /><text class="eqState">离线</text>
+                    </view>
+                    <view wx:elif="{{item.device.onLine == true}}">
+                        <switch wx:if="{{item.status.switch == true}}" catchtap="onChange" data-eqstate="{{item}}" checked></switch>
+                        <switch wx:elif="{{item.status.switch == false}}" catchtap="onChange" data-eqstate="{{item}}"></switch>
+                    </view>
+                </view>
+                <view wx:if="{{item.device.categoryId == 'sensor' && (selected == 'all' || selected == 'sensor')}}" class="add-box" catchtap="toEq" data-deviceid="{{item.device.deviceId}}">
+                    <image src="../../images/icon-image/{{item.device.categoryItemId}}.png"/>
+                    <text>{{item.device.roomName}}</text>
+                    <text>{{item.device.name}}</text>
+                    <view wx:if="{{item.device.onLine == false}}">
+                        <i-icon type="offline_fill" color="red" size="24" /><text class="eqState">离线</text>
+                    </view>
+                </view>
+                <view wx:if="{{item.device.categoryItemId == 'airFan' && (selected == 'all' || selected == 'airFan')}}" class="add-box" catchtap="toEq" data-deviceid="{{item.device.deviceId}}">
+                        <image src="../../images/icon-image/{{item.device.categoryItemId}}.png"/>
+                    <text>{{item.device.roomName}}</text>
+                    <text>{{item.device.name}}</text>
+                    <view wx:if="{{item.device.onLine == false}}">
+                        <i-icon type="offline_fill" color="red" size="24" /><text class="eqState">离线</text>
+                    </view>
+                    <view wx:elif="{{item.device.onLine == true}}">
+                        <switch wx:if="{{item.status.switch == true}}" catchtap="onChange" data-eqstate="{{item}}" checked></switch>
+                        <switch wx:if="{{item.status.switch == false}}" catchtap="onChange" data-eqstate="{{item}}"></switch>
+                    </view>
+                </view>
+                <view wx:if="{{item.device.categoryItemId == 'alarm' && (selected == 'all' || selected == 'alarm')}}" class="add-box" catchtap="toEq" data-deviceid="{{item.device.deviceId}}">
+                    <image src="../../images/icon-image/{{item.device.categoryItemId}}.png"/>
+                    <text>{{item.device.roomName}}</text>
+                    <text>{{item.device.name}}</text>
+                    <view wx:if="{{item.device.onLine == false}}">
+                        <i-icon type="offline_fill" color="red" size="24" /><text class="eqState">离线</text>
+                    </view>
+                    <view wx:elif="{{item.device.onLine == true}}">
+                        <switch wx:if="{{item.status.switch == true}}" catchtap="onChange" data-eqstate="{{item}}" checked></switch>
+                        <switch wx:if="{{item.status.switch == false}}" catchtap="onChange" data-eqstate="{{item}}"></switch>
+                    </view>
+                </view>
+                <view wx:if="{{item.device.categoryItemId == 'car' && (selected == 'all' || selected == 'other')}}" class="add-box" catchtap="toEq" data-deviceid="{{item.device.deviceId}}">
+                    <image src="../../images/icon-image/{{item.device.categoryItemId}}.png"/>
+                    <text>{{item.device.roomName}}</text>
+                    <text>{{item.device.name}}</text>
+                    <view wx:if="{{item.device.onLine == false}}">
+                        <i-icon type="offline_fill" color="red" size="24" /><text class="eqState">离线</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+</view>
+

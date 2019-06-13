@@ -1,0 +1,53 @@
+<!-- setTimeTask.wxml -->
+<button class="add" catchtap="addDesired">+ 添加任务</button>
+<button>添加任务</button>
+<i-cell-group>
+    <view wx:for="{{desired}}" wx:key="key">
+        <view wx:if="{{item.finish == true}}" class="taskCard">
+            <i-cell title="{{item.name}}" value="已完成">
+                <text class="desc">开始时间：{{item.detailTime}}
+                    任务内容：{{item.time.hour}}时{{item.time.minute}}分后<text wx:if="{{item.desired.switch == true}}">开启</text><text wx:if="{{item.desired.switch == false}}">关闭</text><text wx:if="{{item.desired.luminance}}">，亮度调整为{{item.desired.luminance}}</text>
+                </text>
+            </i-cell>
+        </view>
+        <view class="taskCard" wx:else>
+            <i-cell title="{{item.name}}">
+                <text class="desc">开始时间：{{item.detailTime}}
+                    任务内容：{{item.time.hour}}时{{item.time.minute}}分后<text wx:if="{{item.desired.switch == true}}">开启</text><text wx:if="{{item.desired.switch == false}}">关闭</text><text wx:if="{{item.desired.luminance}}">，亮度调整为{{item.desired.luminance}}</text>
+                </text>
+                <switch slot="footer" checked="{{item.perform}}" data-id="{{item.timedTaskId}}" bindchange="setTask" />
+            </i-cell>
+        </view>
+    </view>
+</i-cell-group>
+<view wx:if="{{setTask}}" class="setTime">
+        <view class="taskBox">
+            <i-icon i-class="model-close" size="18" color='#000' type="close" catchtap="close" />
+            <text>任务设置</text>
+            <view class="row">
+                <text>任务名称</text>
+                <input type="text" value="{{taskName}}" bindinput="{{setName}}" />
+            </view>
+            <view class="row">
+                <text>设置时间</text>
+                <view class="i-row"><input type="number" bindinput="setHour" />小时<input type="number" bindinput="setMinute" />分钟</view>
+            </view>
+            <view class="row">
+                <text>设置开关</text>
+                <view class="i-row">
+                    <radio-group bindchange="setSwitch">
+                        <label class="radio" wx:for="{{items}}">
+                             <radio value="{{item.value}}" />{{item.name}}
+                         </label>
+                    </radio-group>
+                </view>
+            </view>
+            <view class="row">
+                <text>设置亮度</text>
+                <slider bindchange="setLuminance" step="10" min="10" max="100" show-value/>
+            </view>
+            <button bindtap="setTimedTask">确定</button>
+        </view>
+        
+
+</view>

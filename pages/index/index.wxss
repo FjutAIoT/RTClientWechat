@@ -1,0 +1,145 @@
+/**index.wxss**/
+Page,
+.all {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #f4f4f4;
+}
+.baseIm {
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.home {
+    width: 100%;
+    height: 8vh;
+    font-size: 1.4rem;
+    line-height: 8vh;
+}
+.home > text {
+    margin-left: 5vw;
+    color: #333;
+}
+.add {
+    position: absolute;
+    right: 5vw;
+    top: 2vw;
+}
+.t-box {
+    width: 100vw;
+    height: 12vh;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.Imtext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 31%;
+    height: 80%;
+    font-size: 1.2rem;
+    margin-top: 1vh;
+    font-weight: 500;
+    color: #000;
+}
+.midtxt {
+    margin: 0 5px;
+    text-align: center;
+}
+.Imtext > text {
+    font-size: 0.7rem;
+}
+.equipments {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+}
+.nav-equipment {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-overflow-scrolling: touch;
+}
+.nav-equipment::-webkit-scrollbar {
+    display: none;
+}
+.nav-icon {
+    margin: 0 4vw;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.null-box {
+    width: 100vw;
+    height: 15px;
+}
+.box-equipment {
+    width: 100vw;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.box-equipment::-webkit-scrollbar {
+    display: none;
+}
+.add-box {
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 6%;
+    width: 41vw;
+    height: 190px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 5px #ddd;
+}
+.add-box:active {
+    background-color: #ccc;
+}
+.add-box > image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.add-box .s-icon {
+    margin-top: -5px;
+    width: 20px;
+    height: 20px;
+}
+.add-box text {
+    display: inline-block;
+    margin: 2px;
+}
+switch {
+    margin-top: 1vh;
+}
+.eqState {
+    margin: 10px 0;
+    color: #aaa;
+}

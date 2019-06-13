@@ -1,0 +1,50 @@
+<!-- register.wxml -->
+<!-- <view
+    class="bg"
+    style="background:url('../../../images/bg3.jpg') repeat;background-size: 100% 100%;"
+> -->
+<!-- <view class="title">SIGN IN</view> -->
+<form onsubmit="register" class="box">
+    <view class="row">
+        <input
+            type="text"
+            name="nickname"
+            placeholder="昵称"
+            placeholder-class="phcolor"
+            bindinput="getNickname"
+        />
+    </view>
+    <view class="row">
+        <input
+            type="password"
+            name="password"
+            placeholder="密码"
+            placeholder-class="phcolor"
+            bindinput="getPsd"
+        />
+    </view>
+    <view class="row">
+        <input
+            type="text"
+            name="userId"
+            placeholder="邮箱账号"
+            placeholder-class="phcolor"
+            bindinput="getEmail"
+        />
+    </view>
+    <view class="row">
+        <input
+            class="half"
+            type="text"
+            name="verificationCode"
+            placeholder="验证码"
+            placeholder-class="phcolor"
+            bindinput="getVerCode"
+        />
+        <button class="half" type="primary" bindtap="getVcode">
+            获取验证码
+        </button>
+    </view>
+    <button type="primary" form-type="submit">注册</button>
+</form>
+<!-- </view> -->

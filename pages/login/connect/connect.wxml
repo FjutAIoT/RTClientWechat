@@ -1,0 +1,31 @@
+<!-- connect.wxml -->
+<!-- <view
+    class="bg"
+    style="background:url('../../../images/bg3.jpg') no-repeat fixed;background-size: 100% 100%;"
+> -->
+<!-- <view class="title"><i>智家</i></view> -->
+<form onsubmit="connect">
+    <view class="box">
+        <view class="row">
+            <input
+                type="text"
+                name="username"
+                value="{{ id }}"
+                placeholder="邮箱账号"
+                placeholder-class="phcolor"
+            />
+        </view>
+        <view class="row">
+            <input
+                type="password"
+                name="password"
+                value="{{ password }}"
+                placeholder="密码"
+                placeholder-class="phcolor"
+            />
+        </view>
+        <button form-type="submit">登录</button>
+        <button bindtap="toRegister">注册</button>
+    </view>
+</form>
+<!-- </view> -->

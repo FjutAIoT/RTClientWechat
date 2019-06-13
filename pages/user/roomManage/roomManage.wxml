@@ -1,0 +1,35 @@
+<!-- roomManage.wxml -->
+<i-cell-group class="box">
+    <i-cell
+        title="家庭名称"
+        value="{{ familyInfo.groupName }}"
+        bind:click="changeName"
+        is-link
+    ></i-cell>
+    <i-cell title="家庭ID" value="{{ familyInfo.groupId }}" is-link></i-cell>
+    <i-cell title="地区" value="{{ address }}" is-link></i-cell>
+    <i-cell title="房间数量" value="{{ roomNum }}个"></i-cell>
+</i-cell-group>
+<i-button
+    class="btn"
+    bind:click="exitGroup"
+    type="error"
+    wx:if="{{ familyInfo.groupId }}"
+    >退出家庭</i-button
+>
+<i-button class="btn" bind:click="jion" type="success" wx:else
+    >加入家庭</i-button
+>
+<view wx:if="{{ visible == true }}" class="bottomBox">
+    <view class="findBox">
+        <i-icon type="close" catchtap="cancel" class="close"></i-icon>
+        <view class="row">
+            <input type="text" bindinput="setfindId" />
+            <button type="primary" bindtap="getGroup">查找</button>
+        </view>
+        <view wx:if="{{ findFamily }}">
+            <text>{{ findFamily.groupName }}</text>
+            <i-button type="success" bindtap="jionGroup">加入</i-button>
+        </view>
+    </view>
+</view>

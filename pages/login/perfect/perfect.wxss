@@ -1,0 +1,38 @@
+/* perfect.wxss */
+Page {
+    width: 100%;
+    height: 100%;
+}
+.row {
+    width: 90vw;
+    height: 14vw;
+    margin: 0 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.row text {
+    display: inline-block;
+    height: 14vw;
+    width: 30vw;
+    line-height: 14vw;
+    text-align: center;
+}
+.row .selector {
+    display: inline-block;
+    height: 14vw;
+    width: 60vw;
+    display: flex;
+    align-items: center;
+}
+.row input {
+    display: inline-block;
+    height: 14vw;
+}
+button {
+    margin-top: 4vh;
+    width: 70vw;
+    background-color: #317ef3 !important;
+    border-radius: 0 !important;
+}

@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "添加设备",
+
+    "component": true,
+    "usingComponents": {
+        "i-icon": "../../../dist/icon/index",
+        "i-divider": "../../../dist/divider/index",
+        "i-input": "../../../dist/input/index",
+        "i-panel": "../../../dist/panel/index"
+    }
+}

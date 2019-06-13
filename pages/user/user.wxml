@@ -1,0 +1,26 @@
+<!-- user.wxml -->
+<view class="userList">
+    <i-cell is-link url="person/person">
+        <image src="{{ userData.avatar }}"/>
+        <view class="name">{{userData.nickName}}</view>
+    </i-cell>
+    <view class="null-box"></view>
+    <i-cell-group>
+        <i-cell title="语音模式" is-link bindtap="voice">
+            <view slot="icon">
+                <i-icon type="translation" size="24" ></i-icon>
+            </view>
+        </i-cell>
+        <i-cell title="家庭管理" is-link="true" url="roomManage/roomManage" >
+            <view slot="icon">
+                <i-icon type="homepage" size="24"></i-icon>
+            </view>
+        </i-cell>
+        <i-cell title="消息中心" is-link="true" url="messagess/messagess" >
+            <view slot="icon">
+                <i-icon type="message"  size="24" />
+            </view>
+        </i-cell>
+    </i-cell-group>
+</view>
+

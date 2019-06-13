@@ -1,0 +1,82 @@
+<!-- index.wxml -->
+<view class="container">
+    <scroll-view
+        id="scroll-content"
+        scroll-top="{{scroll_top}}"
+        scroll-y="true"
+        class="dialog-part"
+        scroll-into-view="translate-{{toView}}"
+        enable-back-to-top="true"
+        scroll-with-animation="true"
+    >
+        <view
+            class="dialog-wrap"
+            id="translate-empty"
+            wx:if="{{!recording && dialogList.length == 0}}"
+        >
+            <result-bubble
+                item="{{initTranslate}}"
+                record-status="0"
+            ></result-bubble>
+        </view>
+        <view
+            class="dialog-wrap"
+            id="translate-recording"
+            wx:if="{{recording}}"
+        >
+            <result-bubble
+                item="{{currentTranslate}}"
+                record-status="{{recordStatus}}"
+            ></result-bubble>
+        </view>
+        <view id="translate-fake"></view>
+        <!-- 帮助页面 -->
+        <view class="help-page" hidden="{{helpPage}}">
+            <!-- <view class="help-page-title">你可以这样说:</view> -->
+            <view
+                class="help-page-item"
+                wx:for="{{order}}"
+                wx:for-item="item"
+                wx:for-index="index"
+                wx:key="index"
+            >
+                <!-- <image src=""></image> -->
+            </view>
+        </view>
+    </scroll-view>
+    <i-toast id="toast" />
+    <i-message id="message" />
+    <i-modal title="标题" visible="{{ visible2 }}" bind:ok="handleOK" bind:cancel="handleCancel">
+      <i-checkbox-group current="{{current}}" bindchange="handleDeviceChange">
+        <i-checkbox wx:for="{{device}}"  position="{{position}}" wx:key="{{item.id}}" value="{{item.id}}" name="{{item.name}}" disabled="{{!item.status}}" position="left">
+        </i-checkbox>
+      </i-checkbox-group>
+    </i-modal>
+    <view class="foot-group" >
+        <bottom-button
+            class ="note-btn"
+            button-disabled="{{bottomButtonDisabled}}"
+            bindrecordstart="streamRecord"
+            bindrecordend="streamRecordEnd"
+        ></bottom-button>
+        <!-- <view
+        class="note-btn"
+        bindtouchstart = "streamRecord"
+        bindtouchend = "streamRecordEnd"
+        button-disabled = "{{bottomButtonDisabled}}"
+         >
+        <image src="./voice.png" width="64rpx" width="64rpx"></image>
+         </view> -->
+        <view
+            class="foot-group-help"
+            bindtouchstart="helpOpen"
+            bindtouchend="helpClose"
+        >
+            <image src="../../image/help.png"></image>
+        </view>
+        <view class="foot-group-close" bindtap="close">
+            <image src="../../image/close.png"></image>
+        </view>
+    </view>
+</view>
+

@@ -1,0 +1,9 @@
+<!-- person.wxml -->
+<i-cell-group>
+    <i-cell is-link><view class="cell-text">头像</view><image src="{{ userInfo.avatar }}"/></i-cell>
+    <i-cell title="昵称" value="{{ userInfo.nickName }}" is-link></i-cell>
+    <i-cell title="性别" value="{{ userInfo.sex }}" is-link></i-cell>
+    <i-cell title="用户ID" value="{{ userInfo.userId }}" is-link></i-cell>
+    <i-cell title="邮箱" value="{{userInfo.email}}" is-link></i-cell>
+</i-cell-group>
+<i-button class="btn" type="error" bind:click="exit">注销</i-button>

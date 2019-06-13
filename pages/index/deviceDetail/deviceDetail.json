@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "i-cell-group": "../../../dist/cell-group/index",
+        "i-cell": "../../../dist/cell/index",
+        "i-progress": "../../../dist/progress/index",
+        "i-button": "../../../dist/button/index",
+        "i-count-down": "../../../dist/count-down/index",
+        "i-icon": "../../../dist/icon/index",
+        "i-input-number": "../../../dist/input-number/index",
+        "i-input": "../../../dist/input/index",
+        "i-panel": "../../../dist/panel/index"
+    }
+}

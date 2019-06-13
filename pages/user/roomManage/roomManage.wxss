@@ -1,0 +1,60 @@
+/* roomManage.wxss */
+Page {
+    background-color: rgba(238, 238, 238, 0.5);
+}
+.box {
+    border-top: 1px solid #ddd;
+}
+.name {
+    border: 1px solid #ddd;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 4px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw !important;
+}
+.bottomBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(151, 151, 151, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.findBox {
+    width: 80%;
+    height: 40%;
+    background-color: #fff;
+}
+.row {
+    width: 100%;
+    float: left;
+    margin-top: 3vw;
+}
+.findBox input {
+    width: 65%;
+    height: 10vw;
+    margin: 1vw;
+    border: 1px solid #aaa;
+    display: inline-block;
+}
+.row button {
+    width: 25%;
+    height: 10vw;
+    display: inline-block;
+    margin: 1vw;
+    font-size: 12px;
+}
+.close {
+    float: right !important;
+    margin-right: 1vw !important;
+}

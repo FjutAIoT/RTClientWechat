@@ -1,0 +1,136 @@
+/* deviceDetail.wxss */
+Page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.deviceData {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+}
+image {
+    margin-top: 5vw;
+    width: 45vw;
+    height: 45vw;
+}
+.light {
+    margin-top: 5vw;
+    width: 45vw;
+    height: 45vw;
+    border: 2px solid #999;
+    border-radius: 50%;
+}
+.light0 {
+    background-color: rgba(255, 255, 255, 0);
+}
+.light1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 4vw #fff;
+}
+.light2 {
+    background-color: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 0 8vw #fff;
+}
+.light3 {
+    background-color: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 0 12vw #fff;
+}
+.light4 {
+    background-color: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 0 16vw #fff;
+}
+.light5 {
+    background-color: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 0 20vw #fff;
+}
+.light6 {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 24vw #fff;
+}
+.light7 {
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 0 28vw #fff;
+}
+.light8 {
+    background-color: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0 32vw #fff;
+}
+.light9 {
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 0 36vw #fff;
+}
+.light10 {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 40vw #fff;
+}
+
+.online {
+    margin: 5vw 0;
+    color: #fff;
+}
+.timing .desired {
+    font-size: 0.8rem;
+    color: #999;
+    text-indent: 1rem;
+}
+.timing text {
+    margin-right: 20vw;
+}
+.deviceCtrl {
+    width: 100vw;
+    height: auto;
+}
+.lightCtrl {
+    width: 100vw;
+    height: auto;
+}
+.lightCtrl button {
+    display: inline-block;
+    width: 45vw;
+}
+.show {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(131, 128, 128, 0.7);
+}
+.showBox {
+    position: absolute;
+    width: 80vw;
+    height: auto;
+    left: 10%;
+    top: 10%;
+    z-index: 100;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.carControl {
+    width: 100vw;
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.row {
+    width: 100vw;
+    height: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row button {
+    margin: 1vw !important;
+    width: 40vw !important;
+}

@@ -1,0 +1,55 @@
+<!-- perfect.wxml -->
+<view wx:if="{{page === 1}}">
+    <form>
+        <view class="row">
+			<text>昵称</text>
+			<view class="selector">{{userInfo.nickName}}</view>
+		</view>
+        <view class="row">
+			<text>性别</text>
+			<view class="selector">
+				<radio data-sex="男" bindtap="sexChange" checked="{{man}}" />男
+				<radio bindtap="sexChange" data-sex="女" checked="{{woman}}" />女
+			</view>
+		</view>
+		<view class="row">
+			<text>家庭名称</text>
+			<view class="selector"><input type="text" value="{{familyInfo.familyName}}" bindinput="bindFamilyName"/></view>
+		</view>
+        <view class="row">
+			<text>出生日期</text>
+			<view class="selector">
+				<picker mode="date" value="{{date}}" start="1900-01-01" end="2100-01-01" bindchange="bindDateChange">
+					<view>{{date}}</view>
+				</picker>
+			</view>
+		</view>
+        <view class="row">
+				<text>所在城市</text>
+				<view class="selector">
+					<picker mode="region" value="{{region}}" bindchange="bindChange">
+						  <view>{{region}}</view>
+					</picker>
+				</view>
+		</view>
+		<view class="row">
+			<button type="primary" bindtap="holdup">完成</button>
+		</view>
+    </form>
+
+</view>
+<view wx:if="{{page === 2}}">
+	<form>
+		<view class="row">
+			<text>用户ID</text>
+			<view class="selector">{{userInfo.userId}}</view>
+		</view>
+		<view class="row">
+			<text>家庭组ID</text>
+			<view class="selector">{{groupInfo.groupId}}</view>
+		</view>
+		<view class="row">
+			<button type="primary" bindtap="toIndex">开始使用</button>
+		</view>
+	</form>
+</view>

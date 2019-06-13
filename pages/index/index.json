@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText": "首  页",
+    "disableScroll": true,
+    "component": true,
+    "usingComponents": {
+        "i-icon": "../../dist/icon/index",
+        "i-cell-group": "../../dist/cell-group/index",
+        "i-cell": "../../dist/cell/index",
+        "i-swipeout": "../../dist/swipeout/index",
+        "i-row": "../../dist/row/index",
+        "i-col": "../../dist/col/index",
+        "i-tab-bar": "../../dist/tab-bar/index",
+        "i-tab-bar-item": "../../dist/tab-bar-item/index",
+        "i-switch": "../../dist/switch/index",
+        "i-message": "../../dist/message/index",
+        "i-panel": "../../dist/panel/index"
+    }
+}

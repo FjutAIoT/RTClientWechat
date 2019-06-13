@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="userinfo">
+        <button
+            wx:if="{{ canIUse }}"
+            type="primary"
+            open-type="getUserInfo"
+            bindgetuserinfo="bindGetUserInfo"
+        >
+            微信授权登录
+        </button>
+        <block wx:else>
+            <image
+                bindtap="bindViewTap"
+                class="userinfo-avatar"
+                src="{{ userInfo.avatarUrl }}"
+                background-size="cover"
+            ></image>
+            <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+        </block>
+    </view>
+</view>

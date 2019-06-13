@@ -1,0 +1,60 @@
+/* user.wxss */
+Page,
+.all {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #f4f4f4;
+}
+.mail {
+    position: absolute;
+    right: 10vw;
+    top: 6vw;
+}
+image {
+    width: 18vw;
+    height: 18vw;
+    float: left;
+    margin-top: -10vw;
+}
+.name {
+    font-size: 18px;
+    float: left;
+    margin-left: 5vw;
+}
+.userE {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.userImg {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+}
+.null-box {
+    width: 100%;
+    height: 5vw;
+    background-color: #f4f4f4;
+}
+.userBar {
+    margin-top: 25px;
+    width: 100%;
+    height: 20%;
+    background-color: #fff;
+}
+.listText {
+    margin-left: 5vw;
+    width: 90vw;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 2vh;
+}
+.userList {
+    margin-top: 15vw;
+    width: 100vw;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.i-class {
+    border-bottom-width: 0;
+}
